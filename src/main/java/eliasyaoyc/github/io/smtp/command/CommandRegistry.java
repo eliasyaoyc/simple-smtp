@@ -1,6 +1,7 @@
 package eliasyaoyc.github.io.smtp.command;
 
-import xyz.vopen.framework.pipeline.processors.smtp.Command;
+
+import eliasyaoyc.github.io.smtp.Command;
 
 /**
  * {@link CommandRegistry} Enumerates all the Commands made available in this release.
@@ -23,13 +24,13 @@ public enum CommandRegistry {
 //  STARTTLS(new StartTLSCommand(), false),
   VRFY(new VerifyCommand());
 
-  private xyz.vopen.framework.pipeline.processors.smtp.Command command;
+  private Command command;
 
-  private CommandRegistry(xyz.vopen.framework.pipeline.processors.smtp.Command cmd) {
+  private CommandRegistry(Command cmd) {
     this(cmd, true);
   }
 
-  private CommandRegistry(xyz.vopen.framework.pipeline.processors.smtp.Command cmd, boolean checkForStartedTLSWhenRequired) {
+  private CommandRegistry(Command cmd, boolean checkForStartedTLSWhenRequired) {
     if (checkForStartedTLSWhenRequired) {
       this.command = new RequireTLSCommandWrapper(cmd);
     } else {
@@ -37,7 +38,7 @@ public enum CommandRegistry {
     }
   }
 
-  public xyz.vopen.framework.pipeline.processors.smtp.Command getCommand() {
+  public Command getCommand() {
     return this.command;
   }
 }

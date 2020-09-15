@@ -1,9 +1,9 @@
 package eliasyaoyc.github.io.smtp.server.handler;
 
+import eliasyaoyc.github.io.smtp.common.SMTPCommandReply;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPCommandReply;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;

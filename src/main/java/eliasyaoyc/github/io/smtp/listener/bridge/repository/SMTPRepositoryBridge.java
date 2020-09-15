@@ -1,7 +1,6 @@
 package eliasyaoyc.github.io.smtp.listener.bridge.repository;
 
-import xyz.vopen.framework.pipeline.processors.smtp.listener.bridge.AbstractRepositoryBridge;
-import xyz.vopen.framework.pipeline.repository.mongo.ProcessorSMTPRepositoryImpl;
+import eliasyaoyc.github.io.smtp.listener.bridge.AbstractRepositoryBridge;
 
 import javax.mail.internet.MimeMessage;
 import java.util.List;
@@ -15,17 +14,10 @@ import java.util.List;
  */
 public class SMTPRepositoryBridge extends AbstractRepositoryBridge<MimeMessage> {
 
-  private ProcessorSMTPRepositoryImpl processorSMTPRepository;
-
-  protected SMTPRepositoryBridge() {
-    super(new ProcessorSMTPRepositoryImpl());
-    this.processorSMTPRepository = (ProcessorSMTPRepositoryImpl) getProcessorRepository();
-  }
+  protected SMTPRepositoryBridge() {}
 
   @Override
-  public void save(MimeMessage message) {
-    processorSMTPRepository.saveSMTPMessage(message);
-  }
+  public void save(MimeMessage message) {}
 
   @Override
   public List listAll() {

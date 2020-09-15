@@ -1,13 +1,13 @@
 package eliasyaoyc.github.io.smtp.server.handler;
 
+import eliasyaoyc.github.io.smtp.MailTransfer;
+import eliasyaoyc.github.io.smtp.Session;
+import eliasyaoyc.github.io.smtp.common.SMTPCommandReply;
+import eliasyaoyc.github.io.smtp.common.SMTPReplyStatus;
+import eliasyaoyc.github.io.smtp.server.SMTPServerConfig;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import xyz.vopen.framework.pipeline.processors.smtp.MailTransfer;
-import xyz.vopen.framework.pipeline.processors.smtp.Session;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPCommandReply;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPReplyStatus;
-import xyz.vopen.framework.pipeline.processors.smtp.server.SMTPServerConfig;
 
 /**
  * {@link SMTPDataHandler}

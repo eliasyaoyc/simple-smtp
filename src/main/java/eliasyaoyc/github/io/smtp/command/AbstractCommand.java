@@ -1,12 +1,12 @@
 package eliasyaoyc.github.io.smtp.command;
 
+import eliasyaoyc.github.io.smtp.Command;
+import eliasyaoyc.github.io.smtp.HelpMessage;
+import eliasyaoyc.github.io.smtp.Session;
+import eliasyaoyc.github.io.smtp.common.SMTPCommandReply;
+import eliasyaoyc.github.io.smtp.exception.CommandException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import xyz.vopen.framework.pipeline.processors.smtp.Command;
-import xyz.vopen.framework.pipeline.processors.smtp.HelpMessage;
-import xyz.vopen.framework.pipeline.processors.smtp.Session;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPCommandReply;
-import xyz.vopen.framework.pipeline.processors.smtp.exception.CommandException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public abstract class AbstractCommand implements Command {
   }
 
   protected String[] getArgs(String commandString) {
-    List<String> strings = new ArrayList<>();
+    List<String> strings = new ArrayList<String>();
     StringTokenizer st = new StringTokenizer(commandString);
     while (st.hasMoreTokens()) {
       strings.add(st.nextToken());

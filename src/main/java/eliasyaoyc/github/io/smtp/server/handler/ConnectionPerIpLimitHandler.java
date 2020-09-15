@@ -21,7 +21,7 @@ public class ConnectionPerIpLimitHandler extends ChannelInboundHandlerAdapter {
 
   private static final Logger logger = LoggerFactory.getLogger(ConnectionPerIpLimitHandler.class);
 
-  private final Map<String, AtomicInteger> connections = new ConcurrentHashMap<>();
+  private final Map<String, AtomicInteger> connections = new ConcurrentHashMap<String, AtomicInteger>();
   private final int maxConnectionPerIp;
 
   public ConnectionPerIpLimitHandler(int maxConnectionPerIp) {

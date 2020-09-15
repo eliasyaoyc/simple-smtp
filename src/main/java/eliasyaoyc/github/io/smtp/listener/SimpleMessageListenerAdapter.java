@@ -1,10 +1,11 @@
 package eliasyaoyc.github.io.smtp.listener;
 
+import eliasyaoyc.github.io.smtp.MessageContext;
+import eliasyaoyc.github.io.smtp.MessageHandler;
+import eliasyaoyc.github.io.smtp.MessageHandlerFactory;
+import eliasyaoyc.github.io.smtp.command.DataCommand;
+import eliasyaoyc.github.io.smtp.exception.RejectException;
 import org.springframework.util.CollectionUtils;
-import xyz.vopen.framework.pipeline.processors.smtp.MessageContext;
-import xyz.vopen.framework.pipeline.processors.smtp.MessageHandler;
-import xyz.vopen.framework.pipeline.processors.smtp.MessageHandlerFactory;
-import xyz.vopen.framework.pipeline.processors.smtp.exception.RejectException;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -26,7 +27,7 @@ public class SimpleMessageListenerAdapter implements MessageHandlerFactory {
 
   /**
    * 5 megs by default. The server will buffer incoming messages to disk when they hit this limit in
-   * the {@link xyz.vopen.framework.pipeline.processors.smtp.command.DataCommand}
+   * the {@link DataCommand}
    */
   private static int DEFAULT_DATA_DEFERRED_SIZE = 1024 * 1024 * 5;
 

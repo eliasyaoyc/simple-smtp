@@ -1,12 +1,12 @@
 package eliasyaoyc.github.io.smtp.server;
 
 import eliasyaoyc.github.io.smtp.CommandHandler;
+import eliasyaoyc.github.io.smtp.Config;
 import eliasyaoyc.github.io.smtp.MessageHandlerFactory;
 import eliasyaoyc.github.io.smtp.Session;
 import eliasyaoyc.github.io.smtp.auth.AuthenticationHandlerFactory;
 import io.netty.util.AttributeKey;
 
-import javax.annotation.concurrent.GuardedBy;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -17,7 +17,7 @@ import java.net.UnknownHostException;
  * @version ${project.version}
  * @date 2020/7/4
  */
-public class SMTPServerConfig extends PipelineConfig {
+public class SMTPServerConfig extends Config {
 
   public static final AttributeKey attrName = AttributeKey.valueOf("SMTPSession");
   private static final String UNKNOWN_HOSTNAME = "localhost";
@@ -35,7 +35,6 @@ public class SMTPServerConfig extends PipelineConfig {
    * True if this SMTPServer was started. It remains true even if the SMTPServer has been stopped
    * since.
    */
-  @GuardedBy("this")
   private boolean started = false;
 
   /** If true, TLS is enabled */

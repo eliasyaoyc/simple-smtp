@@ -1,8 +1,8 @@
 package eliasyaoyc.github.io.smtp.listener;
 
+import eliasyaoyc.github.io.smtp.listener.bridge.repository.SMTPRepositoryBridge;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import xyz.vopen.framework.pipeline.processors.smtp.listener.bridge.repository.SMTPRepositoryBridge;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;

@@ -1,15 +1,15 @@
 package eliasyaoyc.github.io.smtp.server.handler;
 
+import eliasyaoyc.github.io.smtp.MailTransfer;
+import eliasyaoyc.github.io.smtp.Session;
+import eliasyaoyc.github.io.smtp.common.SMTPCommandReply;
+import eliasyaoyc.github.io.smtp.common.SMTPReplyStatus;
+import eliasyaoyc.github.io.smtp.server.SMTPServerConfig;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.Attribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import xyz.vopen.framework.pipeline.processors.smtp.MailTransfer;
-import xyz.vopen.framework.pipeline.processors.smtp.Session;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPCommandReply;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPReplyStatus;
-import xyz.vopen.framework.pipeline.processors.smtp.server.SMTPServerConfig;
 
 import java.util.Locale;
 
@@ -34,9 +34,9 @@ public class SessionInitiationHandler extends ChannelInboundHandlerAdapter {
 
   @Override
   public void channelActive(ChannelHandlerContext ctx) throws Exception {
-    xyz.vopen.framework.pipeline.processors.smtp.Session session = new xyz.vopen.framework.pipeline.processors.smtp.Session(config);
+    Session session = new Session(config);
     logger.info("initiation session : {}", session);
-    Attribute<xyz.vopen.framework.pipeline.processors.smtp.Session> sessionContext = ctx.channel().attr(config.attrName);
+    Attribute<Session> sessionContext = ctx.channel().attr(config.attrName);
     session.setChannel(ctx);
     session.setSessionId(createSessionId());
     session.setMailTransfer(new MailTransfer());

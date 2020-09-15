@@ -16,13 +16,13 @@ public class SMTPCommandReply {
 
   public SMTPCommandReply(SMTPReplyStatus statusCode, CharSequence text) {
     replyCode = statusCode;
-    this.text = new ArrayList<>();
+    this.text = new ArrayList<CharSequence>();
     this.text.add(text);
   }
 
   public SMTPCommandReply(SMTPReplyStatus statusCode, List<String> lines) {
     replyCode = statusCode;
-    this.text = new ArrayList<>();
+    this.text = new ArrayList<CharSequence>();
     this.text.addAll(lines);
   }
 

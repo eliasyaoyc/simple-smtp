@@ -1,5 +1,7 @@
 package eliasyaoyc.github.io.smtp.server;
 
+import eliasyaoyc.github.io.smtp.AbstractLifeCycle;
+import eliasyaoyc.github.io.smtp.server.handler.*;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -9,10 +11,8 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.Delimiters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import xyz.vopen.framework.pipeline.common.AbstractPipelineLifeCycle;
-import xyz.vopen.framework.pipeline.processors.smtp.server.handler.*;
 
-import static xyz.vopen.framework.pipeline.processors.smtp.server.SMTPServerConfig.MAX_LINE_LENGTH;
+import static eliasyaoyc.github.io.smtp.server.SMTPServerConfig.MAX_LINE_LENGTH;
 
 /**
  * {@link SMTPServer}
@@ -21,7 +21,7 @@ import static xyz.vopen.framework.pipeline.processors.smtp.server.SMTPServerConf
  * @version ${project.version}
  * @date 2020/7/4
  */
-public class SMTPServer extends AbstractPipelineLifeCycle {
+public class SMTPServer extends AbstractLifeCycle {
   private static final Logger logger = LoggerFactory.getLogger(SMTPServer.class);
 
   private SMTPServerConfig config;

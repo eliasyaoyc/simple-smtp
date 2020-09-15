@@ -1,7 +1,5 @@
 package eliasyaoyc.github.io.smtp.listener.bridge;
 
-import xyz.vopen.framework.pipeline.repository.ProcessorRepository;
-
 import java.util.List;
 
 /**
@@ -13,21 +11,13 @@ import java.util.List;
  */
 public abstract class AbstractRepositoryBridge<T> {
 
-    protected ProcessorRepository processorRepository;
+  protected AbstractRepositoryBridge() {}
 
-    protected AbstractRepositoryBridge(ProcessorRepository processorRepository){
-        this.processorRepository = processorRepository;
-    }
+  public abstract void save(T t);
 
-    protected ProcessorRepository getProcessorRepository(){
-        return this.processorRepository;
-    }
+  public abstract List<T> listAll();
 
-    public abstract void save(T t);
+  public abstract void remove();
 
-    public abstract List<T> listAll();
-
-    public abstract void remove();
-
-    public abstract void update();
+  public abstract void update();
 }

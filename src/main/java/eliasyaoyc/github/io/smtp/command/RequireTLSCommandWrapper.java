@@ -1,11 +1,11 @@
 package eliasyaoyc.github.io.smtp.command;
 
-import xyz.vopen.framework.pipeline.processors.smtp.Command;
-import xyz.vopen.framework.pipeline.processors.smtp.HelpMessage;
-import xyz.vopen.framework.pipeline.processors.smtp.Session;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPCommandReply;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPReplyStatus;
-import xyz.vopen.framework.pipeline.processors.smtp.exception.CommandException;
+import eliasyaoyc.github.io.smtp.Command;
+import eliasyaoyc.github.io.smtp.HelpMessage;
+import eliasyaoyc.github.io.smtp.Session;
+import eliasyaoyc.github.io.smtp.common.SMTPCommandReply;
+import eliasyaoyc.github.io.smtp.common.SMTPReplyStatus;
+import eliasyaoyc.github.io.smtp.exception.CommandException;
 
 import java.io.IOException;
 
@@ -27,7 +27,7 @@ public class RequireTLSCommandWrapper implements Command {
   }
 
   @Override
-  public SMTPCommandReply execute(String commandString, xyz.vopen.framework.pipeline.processors.smtp.Session session) throws IOException {
+  public SMTPCommandReply execute(String commandString,  Session session) throws IOException {
     if (!session.getServerConfig().isRequireTLS() || session.isTLSStarted()) {
       return wrapped.execute(commandString, session);
     } else {
@@ -35,7 +35,7 @@ public class RequireTLSCommandWrapper implements Command {
     }
   }
 
-  public xyz.vopen.framework.pipeline.processors.smtp.HelpMessage getHelp() throws CommandException {
+  public HelpMessage getHelp() throws CommandException {
     return wrapped.getHelp();
   }
 

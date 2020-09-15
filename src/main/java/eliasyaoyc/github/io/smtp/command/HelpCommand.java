@@ -1,10 +1,11 @@
 package eliasyaoyc.github.io.smtp.command;
 
-import xyz.vopen.framework.pipeline.processors.smtp.Session;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPCommandReply;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPReplyStatus;
-import xyz.vopen.framework.pipeline.processors.smtp.exception.CommandException;
-import xyz.vopen.framework.pipeline.processors.smtp.server.SMTPServerConfig;
+
+import eliasyaoyc.github.io.smtp.Session;
+import eliasyaoyc.github.io.smtp.common.SMTPCommandReply;
+import eliasyaoyc.github.io.smtp.common.SMTPReplyStatus;
+import eliasyaoyc.github.io.smtp.exception.CommandException;
+import eliasyaoyc.github.io.smtp.server.SMTPServerConfig;
 
 import java.io.IOException;
 
@@ -32,7 +33,7 @@ public class HelpCommand extends AbstractCommand {
 
   /** */
   @Override
-  public SMTPCommandReply execute(String commandString, xyz.vopen.framework.pipeline.processors.smtp.Session session) throws IOException {
+  public SMTPCommandReply execute(String commandString, Session session) throws IOException {
     SMTPCommandReply smtpCommandReply = null;
     String args = this.getArgPredicate(commandString);
     if ("".equals(args)) {

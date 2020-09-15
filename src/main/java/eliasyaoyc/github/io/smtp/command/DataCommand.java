@@ -1,10 +1,10 @@
 package eliasyaoyc.github.io.smtp.command;
 
-import xyz.vopen.framework.pipeline.processors.smtp.Session;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPCommandReply;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPReplyStatus;
-import xyz.vopen.framework.pipeline.processors.smtp.server.handler.SMTPCommandHandler;
-import xyz.vopen.framework.pipeline.processors.smtp.server.handler.SMTPDataHandler;
+import eliasyaoyc.github.io.smtp.Session;
+import eliasyaoyc.github.io.smtp.common.SMTPCommandReply;
+import eliasyaoyc.github.io.smtp.common.SMTPReplyStatus;
+import eliasyaoyc.github.io.smtp.server.handler.SMTPCommandHandler;
+import eliasyaoyc.github.io.smtp.server.handler.SMTPDataHandler;
 
 import java.io.IOException;
 

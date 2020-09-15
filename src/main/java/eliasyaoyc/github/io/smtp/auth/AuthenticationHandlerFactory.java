@@ -1,6 +1,6 @@
 package eliasyaoyc.github.io.smtp.auth;
 
-import xyz.vopen.framework.pipeline.processors.smtp.AuthenticationHandler;
+import eliasyaoyc.github.io.smtp.AuthenticationHandler;
 
 import java.util.List;
 
@@ -24,5 +24,5 @@ public interface AuthenticationHandlerFactory {
   public List<String> getAuthenticationMechanisms();
 
   /** Create a fresh instance of your handler. */
-  public xyz.vopen.framework.pipeline.processors.smtp.AuthenticationHandler create();
+  public AuthenticationHandler create();
 }

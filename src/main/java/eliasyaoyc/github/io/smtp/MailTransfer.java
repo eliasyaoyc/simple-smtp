@@ -1,11 +1,12 @@
 package eliasyaoyc.github.io.smtp;
 
+import eliasyaoyc.github.io.smtp.io.DotTerminatedInputStream;
+import eliasyaoyc.github.io.smtp.io.DotUnstuffingInputStream;
+import eliasyaoyc.github.io.smtp.io.ReceivedHeaderStream;
+import eliasyaoyc.github.io.smtp.listener.SimpleMessageListener;
 import io.netty.buffer.ByteBuf;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import io.DotTerminatedInputStream;
-import io.DotUnstuffingInputStream;
-import io.ReceivedHeaderStream;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;

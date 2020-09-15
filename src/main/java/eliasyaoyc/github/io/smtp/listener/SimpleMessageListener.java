@@ -1,12 +1,14 @@
 package eliasyaoyc.github.io.smtp.listener;
 
+import eliasyaoyc.github.io.smtp.MessageHandler;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 
 /**
  * {@link SimpleMessageListener} This is an interface for processing the end-result message that is
- * higher-level than the {@link xyz.vopen.framework.pipeline.processors.smtp.MessageHandler} and
+ * higher-level than the {@link MessageHandler} and
  * related factory.
  *
  * <p>While the SMTP message is being received, all listeners are asked if they want to accept each

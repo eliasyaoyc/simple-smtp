@@ -1,14 +1,14 @@
 package eliasyaoyc.github.io.smtp.server.handler;
 
+import eliasyaoyc.github.io.smtp.Session;
+import eliasyaoyc.github.io.smtp.common.SMTPCommandReply;
+import eliasyaoyc.github.io.smtp.exception.UnknownCommandException;
+import eliasyaoyc.github.io.smtp.server.SMTPServerConfig;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import xyz.vopen.framework.pipeline.processors.smtp.Session;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPCommandReply;
-import xyz.vopen.framework.pipeline.processors.smtp.exception.UnknownCommandException;
-import xyz.vopen.framework.pipeline.processors.smtp.server.SMTPServerConfig;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -34,7 +34,7 @@ public class SMTPCommandHandler extends ChannelInboundHandlerAdapter {
   @Override
   public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
     ByteBuf frame = (ByteBuf) msg;
-    xyz.vopen.framework.pipeline.processors.smtp.Session session = (xyz.vopen.framework.pipeline.processors.smtp.Session) ctx.channel().attr(SMTPServerConfig.attrName).get();
+    Session session = (Session) ctx.channel().attr(SMTPServerConfig.attrName).get();
     if (session == null) {
       return;
     }
@@ -72,7 +72,7 @@ public class SMTPCommandHandler extends ChannelInboundHandlerAdapter {
     return Arrays.stream(VALID_COMMANDS).anyMatch(c -> charComparator(c, cmd));
   }
 
-  private boolean validateCommandOrder(xyz.vopen.framework.pipeline.processors.smtp.Session session, CharSequence cmd) {
+  private boolean validateCommandOrder(Session session, CharSequence cmd) {
     if (Arrays.stream(ALWAYS_ALLOWED_COMMANDS).anyMatch(c -> charComparator(c, cmd))) {
       return true;
     }

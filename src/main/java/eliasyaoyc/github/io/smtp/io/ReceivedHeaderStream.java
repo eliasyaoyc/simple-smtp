@@ -1,6 +1,7 @@
 package eliasyaoyc.github.io.smtp.io;
 
-import xyz.vopen.framework.pipeline.common.utils.TextUtils;
+
+import eliasyaoyc.github.io.smtp.utils.TextUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.FilterInputStream;

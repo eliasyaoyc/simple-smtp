@@ -1,8 +1,8 @@
 package eliasyaoyc.github.io.smtp.command;
 
-import xyz.vopen.framework.pipeline.processors.smtp.Session;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPCommandReply;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPReplyStatus;
+import eliasyaoyc.github.io.smtp.Session;
+import eliasyaoyc.github.io.smtp.common.SMTPCommandReply;
+import eliasyaoyc.github.io.smtp.common.SMTPReplyStatus;
 
 import java.io.IOException;
 
@@ -25,7 +25,7 @@ public class HelloCommand extends AbstractCommand {
   }
 
   @Override
-  public SMTPCommandReply execute(String commandName, xyz.vopen.framework.pipeline.processors.smtp.Session session) throws IOException {
+  public SMTPCommandReply execute(String commandName, Session session) throws IOException {
     String[] args = this.getArgs(commandName);
     if (args.length < 2) {
       return new SMTPCommandReply(SMTPReplyStatus.R501, "Syntax: HELO <hostname>");

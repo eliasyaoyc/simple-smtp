@@ -1,12 +1,12 @@
 package eliasyaoyc.github.io.smtp.command;
 
-import xyz.vopen.framework.pipeline.common.utils.CRLFTerminatedReader;
-import xyz.vopen.framework.pipeline.processors.smtp.AuthenticationHandler;
-import xyz.vopen.framework.pipeline.processors.smtp.Session;
-import xyz.vopen.framework.pipeline.processors.smtp.auth.AuthenticationHandlerFactory;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPCommandReply;
-import xyz.vopen.framework.pipeline.processors.smtp.common.SMTPReplyStatus;
-import xyz.vopen.framework.pipeline.processors.smtp.exception.RejectException;
+import eliasyaoyc.github.io.smtp.AuthenticationHandler;
+import eliasyaoyc.github.io.smtp.Session;
+import eliasyaoyc.github.io.smtp.auth.AuthenticationHandlerFactory;
+import eliasyaoyc.github.io.smtp.common.SMTPCommandReply;
+import eliasyaoyc.github.io.smtp.common.SMTPReplyStatus;
+import eliasyaoyc.github.io.smtp.exception.RejectException;
+import eliasyaoyc.github.io.smtp.utils.CRLFTerminatedReader;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -35,7 +35,7 @@ public class AuthCommand extends AbstractCommand {
 
   /** */
   @Override
-  public SMTPCommandReply execute(String commandString, xyz.vopen.framework.pipeline.processors.smtp.Session session) throws IOException {
+  public SMTPCommandReply execute(String commandString, Session session) throws IOException {
     if (session.isAuthenticated()) {
       return new SMTPCommandReply(SMTPReplyStatus.R503, "Refusing any other AUTH command.");
     }
@@ -47,7 +47,7 @@ public class AuthCommand extends AbstractCommand {
       return new SMTPCommandReply(SMTPReplyStatus.R502, "Authentication not supported.");
     }
 
-    xyz.vopen.framework.pipeline.processors.smtp.AuthenticationHandler authHandler = authFactory.create();
+    AuthenticationHandler authHandler = authFactory.create();
 
     String[] args = this.getArgs(commandString);
     // Let's check the command syntax
